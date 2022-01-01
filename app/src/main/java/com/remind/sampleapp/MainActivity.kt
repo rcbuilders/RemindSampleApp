@@ -3,6 +3,7 @@ package com.remind.sampleapp
 import android.content.Intent
 import com.remind.sampleapp.base_fragment.TestFragmentActivity
 import com.remind.sampleapp.databinding.ActivityMainBinding
+import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumDetailActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -11,6 +12,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.apply {
             button.setOnClickListener {
                 Intent(this@MainActivity, TestFragmentActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnLorempicsum.setOnClickListener {
+                Intent(this@MainActivity, LoremPicsumDetailActivity::class.java).also {
                     startActivity(it)
                 }
             }

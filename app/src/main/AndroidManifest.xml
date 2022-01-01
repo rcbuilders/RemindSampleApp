@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.remind.sampleapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".AppMain"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".base_fragment.TestFragmentActivity"/>
+        <activity android:name=".lorem_picsum.ui.LoremPicsumDetailActivity"/>
     </application>
 
 </manifest>
