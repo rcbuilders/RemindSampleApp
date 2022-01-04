@@ -13,5 +13,6 @@ class AppMain: Application() {
             androidContext(this@AppMain)
             modules(AppModules.modules)
         }
+
     }
 }

@@ -1,12 +1,13 @@
 package com.remind.sampleapp.lorem_picsum.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
 import com.remind.sampleapp.lorem_picsum.model.ImageInfo
 import com.remind.sampleapp.lorem_picsum.repository.LoremPicsumRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -28,6 +29,10 @@ class LoremPicsumViewModel(private val repository: LoremPicsumRepository): ViewM
                     _imageInfo.postValue(it)
                 }
         }
+    }
+
+    fun fetchImageList(): Flow<PagingData<ImageInfo>> {
+        return repository.fetchImageList()
     }
 
 }
