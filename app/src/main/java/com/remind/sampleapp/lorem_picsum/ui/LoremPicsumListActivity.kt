@@ -1,6 +1,7 @@
 package com.remind.sampleapp.lorem_picsum.ui
 
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.remind.sampleapp.BaseActivity
@@ -9,6 +10,8 @@ import com.remind.sampleapp.databinding.ActivityLorempicsumListBinding
 import com.remind.sampleapp.lorem_picsum.ui.adapter.LoremPicsumListAdapter
 import com.remind.sampleapp.lorem_picsum.viewmodel.LoremPicsumViewModel
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoremPicsumListActivity:
@@ -31,6 +34,21 @@ class LoremPicsumListActivity:
     override fun initViewModel() {
         super.initViewModel()
         binding.lifecycleOwner = this
+    }
+
+    override fun initListener() {
+        super.initListener()
+        binding.apply {
+            swipeLayout.setOnRefreshListener { imageListAdapter.refresh() }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            imageListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                .filter { it.refresh is LoadState.NotLoading }
+                .collect {
+                    binding.swipeLayout.isRefreshing = false
+                }
+        }
     }
 
     override fun afterOnCreate() {

@@ -16,7 +16,7 @@ class LoremPicsumListAdapter:
             }
 
             override fun areContentsTheSame(oldItem: ImageInfo, newItem: ImageInfo): Boolean {
-                return oldItem.id == newItem.id && oldItem == newItem
+                return oldItem.id == newItem.id && oldItem.equals(newItem)
             }
 
         }
