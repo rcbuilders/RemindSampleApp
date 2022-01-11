@@ -1,5 +1,6 @@
 package com.remind.sampleapp
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.GsonBuilder
 import com.remind.sampleapp.lorem_picsum.api.service.LoremPicsumApiService
 import com.remind.sampleapp.lorem_picsum.repository.LoremPicsumRepository
@@ -35,6 +36,7 @@ object AppModules {
         single(named(ApiConstants.API_LOREM_PICSUM)) {
             Retrofit.Builder()
                 .client(OkHttpClient.Builder().run {
+                    addNetworkInterceptor(StethoInterceptor())
                     connectTimeout(10, TimeUnit.SECONDS)
                     readTimeout(10, TimeUnit.SECONDS)
                     writeTimeout(10, TimeUnit.SECONDS)
