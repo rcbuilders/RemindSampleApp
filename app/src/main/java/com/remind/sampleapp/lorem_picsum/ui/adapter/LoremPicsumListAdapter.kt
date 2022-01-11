@@ -8,7 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.remind.sampleapp.databinding.ListItemImageBinding
 import com.remind.sampleapp.lorem_picsum.model.ImageInfo
 
-class LoremPicsumListAdapter:
+interface OnImageItemClickListener {
+    fun onImageItemClicked(item: ImageInfo?)
+}
+
+class LoremPicsumListAdapter(private val listener: OnImageItemClickListener?):
     PagingDataAdapter<ImageInfo, LoremPicsumListAdapter.ImageViewHolder>(
         object : DiffUtil.ItemCallback<ImageInfo>() {
             override fun areItemsTheSame(oldItem: ImageInfo, newItem: ImageInfo): Boolean {
@@ -21,6 +25,7 @@ class LoremPicsumListAdapter:
 
         }
     ) {
+
     override fun onBindViewHolder(holder: LoremPicsumListAdapter.ImageViewHolder, position: Int) {
         val item = getItem(position)?: return
         holder.onBind(item)
@@ -37,6 +42,13 @@ class LoremPicsumListAdapter:
 
     inner class ImageViewHolder(private val binding: ListItemImageBinding):
         RecyclerView.ViewHolder(binding.root) {
+
+            init {
+                binding.root.setOnClickListener {
+                    listener?.onImageItemClicked(binding.item)
+                }
+            }
+
             fun onBind(item: ImageInfo) {
                 binding.item = item
             }
