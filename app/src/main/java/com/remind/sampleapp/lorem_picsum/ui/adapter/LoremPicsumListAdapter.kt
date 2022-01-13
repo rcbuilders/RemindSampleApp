@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.remind.sampleapp.databinding.ListItemImageBinding
 import com.remind.sampleapp.lorem_picsum.model.ImageInfo
 
-interface OnImageItemClickListener {
-    fun onImageItemClicked(item: ImageInfo?)
+interface OnImageItemClickListener<T> {
+    fun onImageItemClicked(item: T?)
 }
 
-class LoremPicsumListAdapter(private val listener: OnImageItemClickListener?):
+class LoremPicsumListAdapter(private val listener: OnImageItemClickListener<ImageInfo>?):
     PagingDataAdapter<ImageInfo, LoremPicsumListAdapter.ImageViewHolder>(
         object : DiffUtil.ItemCallback<ImageInfo>() {
             override fun areItemsTheSame(oldItem: ImageInfo, newItem: ImageInfo): Boolean {

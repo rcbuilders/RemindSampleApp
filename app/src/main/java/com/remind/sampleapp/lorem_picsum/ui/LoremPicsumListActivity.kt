@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.filter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoremPicsumListActivity:
-    BaseActivity<ActivityLorempicsumListBinding>(R.layout.activity_lorempicsum_list), OnImageItemClickListener {
+    BaseActivity<ActivityLorempicsumListBinding>(R.layout.activity_lorempicsum_list), OnImageItemClickListener<ImageInfo> {
 
     private val viewModel: LoremPicsumViewModel by viewModel()
     private val imageListAdapter: LoremPicsumListAdapter = LoremPicsumListAdapter(this)

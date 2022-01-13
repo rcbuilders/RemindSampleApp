@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/round_button_background.xml" value="0.262037037037037" />
+        <entry key="app/src/main/res/layout/activity_generics_example.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/activity_lorempicsum_detail.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/activity_lorempicsum_list.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33125" />

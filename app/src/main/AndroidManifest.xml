@@ -24,6 +24,7 @@
         <activity android:name=".base_fragment.TestFragmentActivity"/>
         <activity android:name=".lorem_picsum.ui.LoremPicsumDetailActivity"/>
         <activity android:name=".lorem_picsum.ui.LoremPicsumListActivity"/>
+        <activity android:name=".generics_example.GenericsExampleActivity"/>
     </application>
 
 </manifest>
