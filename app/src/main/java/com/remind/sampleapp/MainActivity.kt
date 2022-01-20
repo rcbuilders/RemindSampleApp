@@ -4,6 +4,7 @@ import android.content.Intent
 import com.remind.sampleapp.base_fragment.TestFragmentActivity
 import com.remind.sampleapp.databinding.ActivityMainBinding
 import com.remind.sampleapp.generics_example.GenericsExampleActivity
+import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumDetailActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumListActivity
 
@@ -22,9 +23,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     startActivity(it)
                 }
             }
-
             btnGenericsExample.setOnClickListener {
                 Intent(this@MainActivity, GenericsExampleActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnInlineFuncExample.setOnClickListener {
+                Intent(this@MainActivity, InlineFuncExampleActivity::class.java).also {
                     startActivity(it)
                 }
             }

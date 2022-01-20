@@ -36,6 +36,12 @@ class GenericsExampleActivity:
          */
         printHello("바둑이", 3)
         printHello("나비", "다섯")
+        getHello("ㅎㅎㅎ") {
+            println(it)
+        }
+        getHello(1111) {
+            println(it)
+        }
 
         /**
          * 제네릭 파라미터 유형을 모르는 경우 <스타 프로젝션>
@@ -50,6 +56,18 @@ class GenericsExampleActivity:
 
     private fun <T1, T2> printHello(name: T1, age: T2) {
         println("${name}는 ${age}살 입니다.")
+    }
+
+    private inline fun <reified T: Any> getHello(name: T, func: (String) -> Unit) {
+        when(T::class.javaObjectType) {
+            java.lang.String::class.java -> {
+                func("String is $name")
+            }
+            else -> {
+                println("name type is ${T::class.javaObjectType}")
+                func("이름은 $name 입니다.")
+            }
+        }
     }
 
     private fun printList(list: List<*>) {
