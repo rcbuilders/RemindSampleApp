@@ -26,6 +26,7 @@
         <activity android:name=".lorem_picsum.ui.LoremPicsumListActivity"/>
         <activity android:name=".generics_example.GenericsExampleActivity"/>
         <activity android:name=".inline_func.InlineFuncExampleActivity"/>
+        <activity android:name=".crossinline_reified.CrossinlineReifiedExampleActivity"/>
     </application>
 
 </manifest>
