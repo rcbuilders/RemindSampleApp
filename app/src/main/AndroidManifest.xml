@@ -28,6 +28,7 @@
         <activity android:name=".inline_func.InlineFuncExampleActivity"/>
         <activity android:name=".crossinline_reified.CrossinlineReifiedExampleActivity"/>
         <activity android:name=".activity_intent.IntentExampleActivity"/>
+        <activity android:name=".fragment_arguments.ArgumentsExampleActivity"/>
     </application>
 
 </manifest>

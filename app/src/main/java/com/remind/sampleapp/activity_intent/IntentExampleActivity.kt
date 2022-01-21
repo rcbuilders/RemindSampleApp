@@ -11,7 +11,7 @@ import java.io.Serializable
 data class IntentData(
     val name: String? = null,
     val num: Int? = null
-): Serializable
+) : Serializable
 
 class IntentExampleActivity :
     BaseActivity<ActivityIntentExampleBinding>(R.layout.activity_intent_example) {
@@ -79,8 +79,8 @@ class IntentExampleActivity :
 /**
  * private val a: Int by extraParams('key', -1)
  */
-inline fun<reified T: Any> Activity.extraParams(key: String, defaultValue: T) = lazy {
-    val result = when(defaultValue) {
+inline fun <reified T : Any> Activity.extraParams(key: String, defaultValue: T) = lazy {
+    val result = when (defaultValue) {
         is Boolean -> intent.getBooleanExtra(key, defaultValue)
         is Int -> intent.getIntExtra(key, defaultValue)
         is CharSequence -> intent.getStringExtra(key)
@@ -94,10 +94,14 @@ inline fun<reified T: Any> Activity.extraParams(key: String, defaultValue: T) = 
 /**
  * private val a: Serializable by extraParams('key') { as Serializable() }
  */
-inline fun<reified T: Any> Activity.extraParams(key: String, crossinline defaultValue: () -> T? = { null }) = lazy {
+inline fun <reified T : Any> Activity.extraParams(
+    key: String,
+    crossinline defaultValue: () -> T? = { null }
+) = lazy {
     val objectType = T::class.javaObjectType
     val result = when {
-        Serializable::class.java.isAssignableFrom(objectType) -> intent.getSerializableExtra(key) ?: defaultValue.invoke()
+        Serializable::class.java.isAssignableFrom(objectType) -> intent.getSerializableExtra(key)
+            ?: defaultValue.invoke()
         else -> throw IllegalArgumentException("Illegal value type [${objectType}] / key [$key]")
     } as? T
     return@lazy result
@@ -106,7 +110,7 @@ inline fun<reified T: Any> Activity.extraParams(key: String, crossinline default
 /**
  * private val a: Serializable by extraParams('key') // Not null
  */
-inline fun<reified T: Any> Activity.extraParamsNotNull(key: String) = lazy<T> {
+inline fun <reified T : Any> Activity.extraParamsNotNull(key: String) = lazy<T> {
     val objectType = T::class.javaObjectType
     val result = when {
         Serializable::class.java.isAssignableFrom(objectType) -> intent.getSerializableExtra(key)

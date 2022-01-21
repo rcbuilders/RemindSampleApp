@@ -6,6 +6,7 @@ import com.remind.sampleapp.activity_intent.IntentExampleActivity
 import com.remind.sampleapp.base_fragment.TestFragmentActivity
 import com.remind.sampleapp.crossinline_reified.CrossinlineReifiedExampleActivity
 import com.remind.sampleapp.databinding.ActivityMainBinding
+import com.remind.sampleapp.fragment_arguments.ArgumentsExampleActivity
 import com.remind.sampleapp.generics_example.GenericsExampleActivity
 import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumDetailActivity
@@ -49,6 +50,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     isOk = true,
                     data = IntentData("김미미", 456)
                 ).also {
+                    startActivity(it)
+                }
+            }
+            btnFragmentArgumentsExample.setOnClickListener {
+                ArgumentsExampleActivity.createIntent(this@MainActivity).also {
                     startActivity(it)
                 }
             }
