@@ -1,6 +1,8 @@
 package com.remind.sampleapp
 
 import android.content.Intent
+import com.remind.sampleapp.activity_intent.IntentData
+import com.remind.sampleapp.activity_intent.IntentExampleActivity
 import com.remind.sampleapp.base_fragment.TestFragmentActivity
 import com.remind.sampleapp.crossinline_reified.CrossinlineReifiedExampleActivity
 import com.remind.sampleapp.databinding.ActivityMainBinding
@@ -36,6 +38,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnCrossinlineReifiedExample.setOnClickListener {
                 Intent(this@MainActivity, CrossinlineReifiedExampleActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnIntentExample.setOnClickListener {
+                IntentExampleActivity.createIntent(
+                    this@MainActivity,
+                    text = "바둑이",
+                    number = 123,
+                    isOk = true,
+                    data = IntentData("김미미", 456)
+                ).also {
                     startActivity(it)
                 }
             }
