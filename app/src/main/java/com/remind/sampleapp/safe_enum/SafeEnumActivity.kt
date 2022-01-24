@@ -38,8 +38,16 @@ class SafeEnumActivity :
 
         println("내가 좋아하는 과일은 ${Fruit.valueOf("APPLE").name} 입니다.")
 
-        // IllegalArgumentException: No enum constant com.remind.sampleapp.safe_enum.Fruit.MELON 에러 발생
-//        println("내가 좋아하는 과일은 ${Fruit.valueOf("MELON").name} 입니다.")
+        // IllegalArgumentException: No enum constant com.remind.sampleapp.safe_enum.Fruit.MELON 에러 발생 예외처리함.
+        println(
+            "내가 좋아하는 과일은 ${
+                try {
+                    Fruit.valueOf("MELON").name
+                } catch (e: IllegalArgumentException) {
+                    Fruit.GRAPE
+                }
+            } 입니다."
+        )
 
         // MELON 이 없을 경우엔 default 값을 표시하도록 함.
         println("내가 좋아하는 과일은 ${safeValueOf("MELON", Fruit.GRAPE).name} 입니다.")
