@@ -11,6 +11,7 @@ import com.remind.sampleapp.generics_example.GenericsExampleActivity
 import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumDetailActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumListActivity
+import com.remind.sampleapp.safe_enum.SafeEnumActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -55,6 +56,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnFragmentArgumentsExample.setOnClickListener {
                 ArgumentsExampleActivity.createIntent(this@MainActivity).also {
+                    startActivity(it)
+                }
+            }
+            btnSafeEnumExample.setOnClickListener {
+                Intent(this@MainActivity, SafeEnumActivity::class.java).also {
                     startActivity(it)
                 }
             }
