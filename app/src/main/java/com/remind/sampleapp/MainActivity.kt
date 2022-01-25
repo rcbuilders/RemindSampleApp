@@ -9,7 +9,7 @@ import com.remind.sampleapp.databinding.ActivityMainBinding
 import com.remind.sampleapp.fragment_arguments.ArgumentsExampleActivity
 import com.remind.sampleapp.generics_example.GenericsExampleActivity
 import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
-import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumDetailActivity
+import com.remind.sampleapp.intent_large_extra.IntentLargeExtraActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumListActivity
 import com.remind.sampleapp.safe_enum.SafeEnumActivity
 
@@ -61,6 +61,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnSafeEnumExample.setOnClickListener {
                 Intent(this@MainActivity, SafeEnumActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnIntentLargeExtraExample.setOnClickListener {
+                /**
+                 * TransactionTooLargeException이 발생함.
+                 */
+//                Intent(this@MainActivity, IntentLargeExtraActivity::class.java).also {
+//                    // ByteArray 사이즈가 커서 TransactionTooLargeException이 발생함.
+//                    it.putExtra("intent.extra.large.data", ByteArray(1000000))
+//                    startActivity(it)
+//                }
+
+                /**
+                 * createIntent()함수에서 putLargeExtra()로 데이터를 추가하여 Exception이 발생하지 않음.
+                 */
+                IntentLargeExtraActivity.createIntent(
+                    this@MainActivity,
+                    "알반적인 텍스트",
+                    ByteArray(1000000)
+                ).also {
                     startActivity(it)
                 }
             }
