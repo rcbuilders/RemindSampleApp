@@ -4,6 +4,7 @@ import android.content.Intent
 import com.remind.sampleapp.activity_intent.IntentData
 import com.remind.sampleapp.activity_intent.IntentExampleActivity
 import com.remind.sampleapp.base_fragment.TestFragmentActivity
+import com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleActivity
 import com.remind.sampleapp.crossinline_reified.CrossinlineReifiedExampleActivity
 import com.remind.sampleapp.databinding.ActivityMainBinding
 import com.remind.sampleapp.fragment_arguments.ArgumentsExampleActivity
@@ -82,6 +83,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     "알반적인 텍스트",
                     ByteArray(1000000)
                 ).also {
+                    startActivity(it)
+                }
+            }
+            btnBindingAdapterExample.setOnClickListener {
+                Intent(this@MainActivity, BindingAdapterExampleActivity::class.java).also {
                     startActivity(it)
                 }
             }

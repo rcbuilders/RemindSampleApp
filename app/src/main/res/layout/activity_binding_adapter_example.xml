@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="java.util.UUID"/>
+        <variable
+            name="viewModel"
+            type="com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleViewModel" />
+        <variable
+            name="handler"
+            type="com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleActivity.DataBindingHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_info"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="16dp"
+            app:profileUrl="@{viewModel.user.photoUrl}"/>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/btn_profile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:userName="@{viewModel.user.name}"
+            app:score="@{viewModel.user.etc.score}" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:onClick="@{() -> viewModel.fetchUser(UUID.randomUUID().toString())}"
+            android:text="프로필 불러오기"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/btn_profile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:onClick="@{(view) -> handler.onHandlerClicked(view)}"
+            android:text="handler를 이용한 click!!"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

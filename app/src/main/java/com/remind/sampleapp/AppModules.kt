@@ -2,6 +2,7 @@ package com.remind.sampleapp
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.GsonBuilder
+import com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleViewModel
 import com.remind.sampleapp.lorem_picsum.api.service.LoremPicsumApiService
 import com.remind.sampleapp.lorem_picsum.repository.LoremPicsumRepository
 import com.remind.sampleapp.lorem_picsum.viewmodel.LoremPicsumViewModel
@@ -25,6 +26,7 @@ object AppModules {
     }
     private val viewModels = module {
         viewModel { LoremPicsumViewModel(repository = get()) }
+        viewModel { BindingAdapterExampleViewModel() }
     }
     private val etc = module {
         factory {
