@@ -13,6 +13,7 @@ import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
 import com.remind.sampleapp.intent_large_extra.IntentLargeExtraActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumListActivity
 import com.remind.sampleapp.safe_enum.SafeEnumActivity
+import com.remind.sampleapp.swipe_finish_example.SwipeFinishExampleActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -88,6 +89,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnBindingAdapterExample.setOnClickListener {
                 Intent(this@MainActivity, BindingAdapterExampleActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnSwipeFinishExample.setOnClickListener {
+                Intent(this@MainActivity, SwipeFinishExampleActivity::class.java).also {
                     startActivity(it)
                 }
             }
