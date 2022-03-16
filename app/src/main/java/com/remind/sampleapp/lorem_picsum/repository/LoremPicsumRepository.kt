@@ -4,7 +4,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.google.gson.Gson
+import com.remind.sampleapp.lorem_picsum.api.response.ApiResult
 import com.remind.sampleapp.lorem_picsum.api.response.ResImageInfo
+import com.remind.sampleapp.lorem_picsum.api.response.safeFlow
 import com.remind.sampleapp.lorem_picsum.api.service.LoremPicsumApiService
 import com.remind.sampleapp.lorem_picsum.model.ImageInfo
 import com.remind.sampleapp.lorem_picsum.repository.datasource.LoremPicsumDataSource
@@ -15,11 +17,12 @@ class LoremPicsumRepository(private val service: LoremPicsumApiService) {
 
     fun getImageInfo(imageId: String): Flow<ImageInfo> = flow {
         val response = service.imageInfo(imageId)
-        if(response.isSuccessful) {
+        if (response.isSuccessful) {
             kotlin.runCatching {
                 Gson().fromJson(
                     response.body()?.string(),
-                    ResImageInfo.Response::class.java)
+                    ResImageInfo.Response::class.java
+                )
             }.onSuccess {
                 emit(it.mapper())
             }.onFailure {
@@ -28,6 +31,10 @@ class LoremPicsumRepository(private val service: LoremPicsumApiService) {
         } else {
             throw RuntimeException("response is Failed.")
         }
+    }
+
+    fun getImageInfoSafeFlow(imageId: String): Flow<ApiResult<ImageInfo>> = safeFlow {
+        service.imageInfoSafeFlow(imageId).mapper()
     }
 
     fun fetchImageList(): Flow<PagingData<ImageInfo>> {

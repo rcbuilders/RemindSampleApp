@@ -12,6 +12,9 @@ interface LoremPicsumApiService {
     @GET("/id/{imageId}/info")
     suspend fun imageInfo(@Path("imageId") imageId: String): Response<ResponseBody>
 
+    @GET("/id/{imageId}/info")
+    suspend fun imageInfoSafeFlow(@Path("imageId") imageId: String): ResImageInfo.Response
+
     @GET("/v2/list")
     suspend fun imageList(
         @Query("page") page: Int?,

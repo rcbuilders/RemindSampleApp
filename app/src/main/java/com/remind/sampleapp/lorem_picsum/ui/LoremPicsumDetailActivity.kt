@@ -37,7 +37,16 @@ class LoremPicsumDetailActivity:
 
         lifecycleScope.launchWhenStarted {
             intent?.getStringExtra(Constants.KEY_EXTRA_IMAGE_ID)?.let {
-                viewModel.getImageInfo(it)
+
+                /**
+                 * sealed class로 성공/실패를 처리하는 방식
+                 */
+                viewModel.getImageInfoSafeFlow(it)
+
+                /**
+                 * exception 으로 성공/실패를 처리하는 방식
+                 */
+//                viewModel.getImageInfo(it)
             }
         }
     }
