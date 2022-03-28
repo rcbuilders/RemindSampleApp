@@ -33,6 +33,7 @@
         <activity android:name=".intent_large_extra.IntentLargeExtraActivity"/>
         <activity android:name=".binding_adapter_example.BindingAdapterExampleActivity"/>
         <activity android:name=".swipe_finish_example.SwipeFinishExampleActivity"/>
+        <activity android:name=".date_format.DateFormatActivity"/>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import com.remind.sampleapp.base_fragment.TestFragmentActivity
 import com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleActivity
 import com.remind.sampleapp.crossinline_reified.CrossinlineReifiedExampleActivity
 import com.remind.sampleapp.databinding.ActivityMainBinding
+import com.remind.sampleapp.date_format.DateFormatActivity
 import com.remind.sampleapp.fragment_arguments.ArgumentsExampleActivity
 import com.remind.sampleapp.generics_example.GenericsExampleActivity
 import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
@@ -94,6 +95,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnSwipeFinishExample.setOnClickListener {
                 Intent(this@MainActivity, SwipeFinishExampleActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnDateFormatExample.setOnClickListener {
+                Intent(this@MainActivity, DateFormatActivity::class.java).also {
                     startActivity(it)
                 }
             }
