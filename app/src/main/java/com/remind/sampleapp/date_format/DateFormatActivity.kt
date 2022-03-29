@@ -6,6 +6,7 @@ import com.remind.sampleapp.R
 import com.remind.sampleapp.databinding.ActivityDateFormatBinding
 import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
@@ -16,9 +17,9 @@ class DateFormatActivity : BaseActivity<ActivityDateFormatBinding>(R.layout.acti
         super.afterOnCreate()
 
         // 현재 시간 milliseconds
-        val currentMillis = System.currentTimeMillis()
+//        val currentMillis = System.currentTimeMillis()
         // LocalDateTime 을 이용하여 현재시간 milliseconds 가져오기
-//        val currentMillis = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()?.toEpochMilli() ?: 0
+        val currentMillis = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()?.toEpochMilli() ?: 0
 
         // milliseconds -> LocalDateTime 으로 변환
         val currentDateTime =
