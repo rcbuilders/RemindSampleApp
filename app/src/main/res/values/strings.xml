@@ -2,4 +2,5 @@
     <string name="app_name">SampleApp</string>
 
     <string name="empty_msg">텅~</string>
+    <string name="score">%d점</string>
 </resources>

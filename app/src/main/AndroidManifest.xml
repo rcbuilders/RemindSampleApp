@@ -34,6 +34,7 @@
         <activity android:name=".binding_adapter_example.BindingAdapterExampleActivity"/>
         <activity android:name=".swipe_finish_example.SwipeFinishExampleActivity"/>
         <activity android:name=".date_format.DateFormatActivity"/>
+        <activity android:name=".sorted_with.SortedWithExampleActivity"/>
     </application>
 
 </manifest>

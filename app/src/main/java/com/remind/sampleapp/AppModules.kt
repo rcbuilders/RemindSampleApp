@@ -6,6 +6,7 @@ import com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleViewMod
 import com.remind.sampleapp.lorem_picsum.api.service.LoremPicsumApiService
 import com.remind.sampleapp.lorem_picsum.repository.LoremPicsumRepository
 import com.remind.sampleapp.lorem_picsum.viewmodel.LoremPicsumViewModel
+import com.remind.sampleapp.sorted_with.SortedWithExampleViewModel
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -27,6 +28,7 @@ object AppModules {
     private val viewModels = module {
         viewModel { LoremPicsumViewModel(repository = get()) }
         viewModel { BindingAdapterExampleViewModel() }
+        viewModel { SortedWithExampleViewModel() }
     }
     private val etc = module {
         factory {

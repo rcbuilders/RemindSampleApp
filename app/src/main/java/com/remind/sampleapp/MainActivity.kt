@@ -14,6 +14,7 @@ import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
 import com.remind.sampleapp.intent_large_extra.IntentLargeExtraActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumListActivity
 import com.remind.sampleapp.safe_enum.SafeEnumActivity
+import com.remind.sampleapp.sorted_with.SortedWithExampleActivity
 import com.remind.sampleapp.swipe_finish_example.SwipeFinishExampleActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -100,6 +101,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnDateFormatExample.setOnClickListener {
                 Intent(this@MainActivity, DateFormatActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnSortedWithExample.setOnClickListener {
+                Intent(this@MainActivity, SortedWithExampleActivity::class.java).also {
                     startActivity(it)
                 }
             }
