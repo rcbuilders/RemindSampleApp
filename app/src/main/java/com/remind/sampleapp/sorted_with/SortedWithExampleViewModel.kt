@@ -1,15 +1,23 @@
 package com.remind.sampleapp.sorted_with
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 
-class SortedWithExampleViewModel : ViewModel() {
+class SortedWithExampleViewModel : ViewModel(), DefaultLifecycleObserver {
 
     private val _userScores: MutableLiveData<List<UserScore>?> = MutableLiveData()
     val userScores: LiveData<List<UserScore>?> get() = _userScores
+
+    override fun onStart(owner: LifecycleOwner) {
+        super.onStart(owner)
+        viewModelScope.launch {
+            fetchUserScoreList()
+        }
+    }
+
+    override fun onDestroy(owner: LifecycleOwner) {
+        super.onDestroy(owner)
+    }
 
     fun fetchUserScoreList() {
         viewModelScope.launch {

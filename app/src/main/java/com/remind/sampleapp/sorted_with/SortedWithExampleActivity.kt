@@ -29,14 +29,15 @@ class SortedWithExampleActivity :
         super.initViewModel()
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
+        lifecycle.addObserver(viewModel)
     }
 
-    override fun afterOnCreate() {
-        super.afterOnCreate()
-        lifecycleScope.launchWhenStarted {
-            viewModel.fetchUserScoreList()
-        }
-    }
+//    override fun afterOnCreate() {
+//        super.afterOnCreate()
+//        lifecycleScope.launchWhenStarted {
+//            viewModel.fetchUserScoreList()
+//        }
+//    }
 
 }
 
