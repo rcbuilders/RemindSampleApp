@@ -35,6 +35,8 @@
         <activity android:name=".swipe_finish_example.SwipeFinishExampleActivity"/>
         <activity android:name=".date_format.DateFormatActivity"/>
         <activity android:name=".sorted_with.SortedWithExampleActivity"/>
+        <activity android:name=".activity_result.ParentActivity"/>
+        <activity android:name=".activity_result.ChildAActivity"/>
     </application>
 
 </manifest>

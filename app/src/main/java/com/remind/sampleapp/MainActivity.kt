@@ -3,6 +3,7 @@ package com.remind.sampleapp
 import android.content.Intent
 import com.remind.sampleapp.activity_intent.IntentData
 import com.remind.sampleapp.activity_intent.IntentExampleActivity
+import com.remind.sampleapp.activity_result.ParentActivity
 import com.remind.sampleapp.base_fragment.TestFragmentActivity
 import com.remind.sampleapp.binding_adapter_example.BindingAdapterExampleActivity
 import com.remind.sampleapp.crossinline_reified.CrossinlineReifiedExampleActivity
@@ -106,6 +107,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnSortedWithExample.setOnClickListener {
                 Intent(this@MainActivity, SortedWithExampleActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnActivityResultExample.setOnClickListener {
+                Intent(this@MainActivity, ParentActivity::class.java).also {
                     startActivity(it)
                 }
             }

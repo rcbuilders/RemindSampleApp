@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/layout/activity_a.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/activity_b.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/activity_binding_adapter_example.xml" value="0.19479166666666667" />
+        <entry key="app/src/main/res/layout/activity_child_a.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/activity_child_b.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/activity_crossinline_reified_example.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/activity_date_format.xml" value="0.1703125" />
         <entry key="app/src/main/res/layout/activity_generics_example.xml" value="0.33177083333333335" />
@@ -15,6 +17,7 @@
         <entry key="app/src/main/res/layout/activity_lorempicsum_detail.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/activity_lorempicsum_list.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33125" />
+        <entry key="app/src/main/res/layout/activity_parent.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/activity_sorted_with_example.xml" value="0.1859375" />
         <entry key="app/src/main/res/layout/activity_swipe_finish_example.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/activity_test_fragment.xml" value="0.33125" />
