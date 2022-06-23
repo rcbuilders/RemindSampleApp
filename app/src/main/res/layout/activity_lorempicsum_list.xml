@@ -1,33 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_layout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_list"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="240dp"
+                android:fitsSystemWindows="true"
+                app:contentScrim="@color/purple_700"
+                app:expandedTitleGravity="center"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:scrimVisibleHeightTrigger="156dp"
+                app:statusBarScrim="@android:color/transparent"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbar.Expanded.Title"
+                app:collapsedTitleTextAppearance="@style/CollapsingToolbar.Collapsed.Title">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/empty_view"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_toolbar_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:url='@{"https://picsum.photos/200/300"}'
+                    android:fitsSystemWindows="true"/>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textSize="80sp"
-                android:textColor="#333333"
-                android:textStyle="bold"
-                android:text="@string/empty_msg"
-                android:background="#e0e0e0"/>
+                android:layout_height="match_parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/empty_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#e0e0e0"
+                    android:gravity="center"
+                    android:text="@string/empty_msg"
+                    android:textColor="#333333"
+                    android:textSize="80sp"
+                    android:textStyle="bold" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

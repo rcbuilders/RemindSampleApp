@@ -90,7 +90,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
     implementation 'com.facebook.stetho:stetho:1.5.1'
 
-    releaseImplementation 'com.willowtreeapps.hyperion:hyperion-core-no-op:0.9.34'
-    debugImplementation 'com.willowtreeapps.hyperion:hyperion-core:0.9.34'
-    debugImplementation 'com.willowtreeapps.hyperion:hyperion-attr:0.9.34'
+//    releaseImplementation 'com.willowtreeapps.hyperion:hyperion-core-no-op:0.9.34'
+//    debugImplementation 'com.willowtreeapps.hyperion:hyperion-core:0.9.34'
+//    debugImplementation 'com.willowtreeapps.hyperion:hyperion-attr:0.9.34'
 }

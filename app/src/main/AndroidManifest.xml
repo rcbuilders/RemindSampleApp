@@ -23,7 +23,9 @@
         </activity>
         <activity android:name=".base_fragment.TestFragmentActivity"/>
         <activity android:name=".lorem_picsum.ui.LoremPicsumDetailActivity"/>
-        <activity android:name=".lorem_picsum.ui.LoremPicsumListActivity"/>
+        <activity
+            android:name=".lorem_picsum.ui.LoremPicsumListActivity"
+            android:theme="@style/Theme.SampleApp.CollapsingToolbar"/>
         <activity android:name=".generics_example.GenericsExampleActivity"/>
         <activity android:name=".inline_func.InlineFuncExampleActivity"/>
         <activity android:name=".crossinline_reified.CrossinlineReifiedExampleActivity"/>

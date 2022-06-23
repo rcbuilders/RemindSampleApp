@@ -25,6 +25,11 @@ class LoremPicsumListActivity:
 
     override fun initView() {
         super.initView()
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
+        title = "CollapsingToolbar"
+
         binding.rvList.apply {
             layoutManager = LinearLayoutManager(
                 this@LoremPicsumListActivity,
