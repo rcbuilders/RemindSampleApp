@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_test_fragment.xml" value="0.33125" />
         <entry key="app/src/main/res/layout/fragment_test.xml" value="0.33125" />
         <entry key="app/src/main/res/layout/list_item_image.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/list_item_image_loading.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/list_item_text.xml" value="0.16979166666666667" />
       </map>
     </option>

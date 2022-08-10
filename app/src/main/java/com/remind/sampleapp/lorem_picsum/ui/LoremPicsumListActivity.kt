@@ -37,14 +37,6 @@ class LoremPicsumListActivity:
                 false)
             adapter = imageListAdapter
         }
-
-        imageListAdapter.addLoadStateListener {
-            if(it.append.endOfPaginationReached) {
-                binding.emptyView.isVisible = imageListAdapter.itemCount == 0
-            } else {
-                binding.emptyView.isVisible = false
-            }
-        }
     }
 
     override fun initViewModel() {
@@ -62,7 +54,21 @@ class LoremPicsumListActivity:
             imageListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect {
+                    // hide loading
                     binding.swipeLayout.isRefreshing = false
+                    // hide shimmer loading
+                    with(binding.sfLoading) {
+                        if(isShimmerStarted) {
+                            stopShimmer()
+                            isVisible = false
+                        }
+                    }
+                    // empty view
+                    if(it.append.endOfPaginationReached) {
+                        binding.emptyView.isVisible = imageListAdapter.itemCount == 0
+                    } else {
+                        binding.emptyView.isVisible = false
+                    }
                 }
         }
     }
@@ -83,4 +89,5 @@ class LoremPicsumListActivity:
             }
         }
     }
+
 }
