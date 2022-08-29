@@ -23,6 +23,7 @@
             app:url="@{item.thumbnail_url}"/>
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_author"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,6 +33,17 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:text="@{item.author}"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ibtn_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="@id/tv_author"
+            app:layout_constraintBottom_toBottomOf="@id/thumbnail"
+            android:padding="0dp"
+            android:src="@{item.isLike ? @drawable/ic_like_sel : @drawable/ic_like}"
+            android:scaleType="centerInside"
+            android:background="@null" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

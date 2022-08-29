@@ -1,5 +1,6 @@
 package com.remind.sampleapp.lorem_picsum.ui
 
+import android.util.Log
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -42,6 +43,10 @@ class LoremPicsumListActivity:
     override fun initViewModel() {
         super.initViewModel()
         binding.lifecycleOwner = this
+
+        viewModel.likePayload.observe(this) {
+            imageListAdapter.updateLike(it)
+        }
     }
 
     override fun initListener() {
@@ -87,6 +92,12 @@ class LoremPicsumListActivity:
             LoremPicsumDetailActivity.createIntent(this, imageId).also {
                 startActivity(it)
             }
+        }
+    }
+
+    override fun onLikeClicked(item: ImageInfo?) {
+        item?.id?.let {
+            viewModel.postLike(it, item.isLike ?: false)
         }
     }
 

@@ -1,5 +1,6 @@
 package com.remind.sampleapp.lorem_picsum.ui.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -10,6 +11,7 @@ import com.remind.sampleapp.lorem_picsum.model.ImageInfo
 
 interface OnImageItemClickListener<T> {
     fun onImageItemClicked(item: T?)
+    fun onLikeClicked(item: T?)
 }
 
 class LoremPicsumListAdapter(private val listener: OnImageItemClickListener<ImageInfo>?):
@@ -31,6 +33,27 @@ class LoremPicsumListAdapter(private val listener: OnImageItemClickListener<Imag
         holder.onBind(item)
     }
 
+    override fun onBindViewHolder(
+        holder: ImageViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if(payloads.isEmpty()) super.onBindViewHolder(holder, position, payloads)
+
+        payloads.forEach { payload ->
+            if(payload is Bundle) {
+                when {
+                    payload.containsKey("isLike") -> {
+                        getItem(position)?.let {
+                            it.isLike = payload.getBoolean("isLike")
+                            holder.onBind(it)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -47,10 +70,25 @@ class LoremPicsumListAdapter(private val listener: OnImageItemClickListener<Imag
                 binding.root.setOnClickListener {
                     listener?.onImageItemClicked(binding.item)
                 }
+                binding.ibtnLike.setOnClickListener {
+                    listener?.onLikeClicked(binding.item)
+                }
             }
 
             fun onBind(item: ImageInfo) {
                 binding.item = item
             }
+    }
+
+    fun updateLike(payload: Bundle?) {
+        payload?.getString("itemId")?.let { id ->
+            snapshot().items.indexOfFirst { item ->
+                item.id == id
+            }.also { position ->
+                if (position >= 0) {
+                    notifyItemChanged(position, payload)
+                }
+            }
+        }
     }
 }
