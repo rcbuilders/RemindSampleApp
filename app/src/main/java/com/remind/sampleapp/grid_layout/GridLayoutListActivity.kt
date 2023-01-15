@@ -2,7 +2,6 @@ package com.remind.sampleapp.grid_layout
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.remind.sampleapp.BaseActivity
 import com.remind.sampleapp.R
@@ -11,7 +10,6 @@ import com.remind.sampleapp.databinding.ListItemGirdBinding
 import com.remind.sampleapp.utils.dp
 import com.rubensousa.decorator.ColumnProvider
 import com.rubensousa.decorator.GridMarginDecoration
-import com.rubensousa.decorator.LinearDividerDecoration
 
 class GridLayoutListActivity:
     BaseActivity<ActivityGridLayoutListBinding>(R.layout.activity_grid_layout_list) {
