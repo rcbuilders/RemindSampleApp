@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_crossinline_reified_example.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/activity_date_format.xml" value="0.1703125" />
         <entry key="app/src/main/res/layout/activity_generics_example.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/activity_grid_layout_list.xml" value="0.16058763931104356" />
         <entry key="app/src/main/res/layout/activity_inline_func_example.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_intent_example.xml" value="0.17760416666666667" />
         <entry key="app/src/main/res/layout/activity_lorempicsum_detail.xml" value="0.18177083333333333" />
@@ -22,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_swipe_finish_example.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/activity_test_fragment.xml" value="0.33125" />
         <entry key="app/src/main/res/layout/fragment_test.xml" value="0.33125" />
+        <entry key="app/src/main/res/layout/list_item_gird.xml" value="0.33125" />
         <entry key="app/src/main/res/layout/list_item_image.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/list_item_image_loading.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/list_item_text.xml" value="0.16979166666666667" />

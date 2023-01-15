@@ -11,6 +11,7 @@ import com.remind.sampleapp.databinding.ActivityMainBinding
 import com.remind.sampleapp.date_format.DateFormatActivity
 import com.remind.sampleapp.fragment_arguments.ArgumentsExampleActivity
 import com.remind.sampleapp.generics_example.GenericsExampleActivity
+import com.remind.sampleapp.grid_layout.GridLayoutListActivity
 import com.remind.sampleapp.inline_func.InlineFuncExampleActivity
 import com.remind.sampleapp.intent_large_extra.IntentLargeExtraActivity
 import com.remind.sampleapp.lorem_picsum.ui.LoremPicsumListActivity
@@ -112,6 +113,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             btnActivityResultExample.setOnClickListener {
                 Intent(this@MainActivity, ParentActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            btnGridLayoutListExample.setOnClickListener {
+                Intent(this@MainActivity, GridLayoutListActivity::class.java).also {
                     startActivity(it)
                 }
             }

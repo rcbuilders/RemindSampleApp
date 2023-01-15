@@ -38,6 +38,7 @@
         <activity android:name=".sorted_with.SortedWithExampleActivity"/>
         <activity android:name=".activity_result.ParentActivity"/>
         <activity android:name=".activity_result.ChildAActivity"/>
+        <activity android:name=".grid_layout.GridLayoutListActivity"/>
     </application>
 
 </manifest>

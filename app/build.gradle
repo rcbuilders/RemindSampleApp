@@ -93,6 +93,9 @@ dependencies {
 
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    // divider
+    implementation 'com.rubensousa:decorator:2.1.0'
+
 //    releaseImplementation 'com.willowtreeapps.hyperion:hyperion-core-no-op:0.9.34'
 //    debugImplementation 'com.willowtreeapps.hyperion:hyperion-core:0.9.34'
 //    debugImplementation 'com.willowtreeapps.hyperion:hyperion-attr:0.9.34'
